@@ -1,0 +1,121 @@
+<!-- Enhanced Navigation with Glassmorphism -->
+<nav
+  class="bg-gradient-to-r from-indigo-600 via-blue-600 to-orange-600 backdrop-blur-lg bg-opacity-90 text-white shadow-2xl sticky top-0 z-50 transition-all duration-300"
+>
+  <div class="container mx-auto px-6">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo with animation -->
+      <a routerLink="/" class="group flex items-center space-x-3 text-2xl font-bold">
+        <div
+          class="p-2 bg-white/30 bg-opacity-20 rounded-xl backdrop-blur-sm group-hover:bg-opacity-30 transition-all duration-300 group-hover:scale-110"
+        >
+          <svg
+            class="w-6 h-6 text-yellow-400 group-hover:text-yellow-500 transition-colors duration-300"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M13 2L3 14h7v8l10-12h-7z" />
+          </svg>
+        </div>
+        <span class="bg-gradient-to-r from-orange-400 to-gray-300 bg-clip-text text-transparent">
+          Daily Spark
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center space-x-8">
+        <a
+          *ngFor="let type of contentTypes"
+          [routerLink]="['/content', type]"
+          class="group relative px-4 py-2 rounded-xl hover:bg-white/10 hover:bg-opacity-10 transition-all duration-300 capitalize flex items-center space-x-2"
+        >
+          <svg
+            class="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z M4 5a2 2 0 012-2v1a1 1 0 001 1h1a1 1 0 001-1V3a2 2 0 012 2v6.5A1.5 1.5 0 019.5 13H9a1 1 0 01-1-1v-1a1 1 0 00-1-1H6a2 2 0 00-2 2v2a2 2 0 002 2h8a2 2 0 002-2v-2a2 2 0 00-2-2h-1a1 1 0 00-1 1v1a1 1 0 01-1 1h-.5A1.5 1.5 0 019.5 11.5V5z"
+            />
+          </svg>
+          <span>{{ type }}s</span>
+          <div
+            class="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-pink-400 to-indigo-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+          ></div>
+        </a>
+
+        <a
+          routerLink="/submit"
+          class="group bg-gradient-to-r from-pink-500 to-indigo-500 hover:from-pink-400 hover:to-indigo-400 px-6 py-2.5 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center space-x-2"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 4v16m8-8H4"
+            />
+          </svg>
+          <span>Create Post</span>
+        </a>
+      </div>
+
+      <!-- Mobile menu button with animation -->
+      <div class="lg:hidden">
+        <button
+          type="button"
+          class="p-2 rounded-xl bg-white/10 bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 transform hover:scale-110"
+          (click)="toggleMenu()"
+        >
+          <svg
+            class="h-6 w-6 transition-transform duration-300"
+            [class.rotate-90]="isMenuOpen"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu with slide animation -->
+    <div
+      class="lg:hidden overflow-hidden transition-all duration-300 ease-in-out"
+      [class]="isMenuOpen ? 'max-h-64 pb-4' : 'max-h-0'"
+    >
+      <div class="space-y-2 animate-fade-in-up">
+        <a
+          *ngFor="let type of contentTypes"
+          [routerLink]="['/content', type]"
+          class="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-white hover:bg-opacity-10 transition-all duration-200 capitalize"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+          </svg>
+          <span>{{ type }}s</span>
+        </a>
+        <a
+          routerLink="/submit"
+          class="flex items-center space-x-3 py-3 px-4 rounded-xl bg-gradient-to-r from-pink-500 to-indigo-500 font-medium"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 4v16m8-8H4"
+            />
+          </svg>
+          <span>Submit Content</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
