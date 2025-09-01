@@ -24,7 +24,7 @@ app.use(compression());
 app.use(express.json({ limit: '1mb' }));
 
 // CORS configuration
-const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:4200')
+const allowedOrigins = (process.env.FRONTEND_URL || 'https://deespark.netlify.app')
   .split(',')
   .map((o) => o.trim());
 app.use(
@@ -48,6 +48,12 @@ app.use('/api/health', healthRouter);
 
 // API routes
 app.use('/api/content', contentRouter);
+
+// Root route
+app.get('/', (req, res) => {
+  res.json({ message: 'Daily Spark Backend is running 🚀' });
+});
+
 
 // Database connection with robust error handling
 const connectDB = async () => {
