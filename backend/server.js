@@ -9,6 +9,7 @@ import dotenv from 'dotenv';
 // Load environment variables
 dotenv.config();
 
+
 // Routers
 import contentRouter from './src/routes/content.js';
 import healthRouter from './src/routes/health.js';
