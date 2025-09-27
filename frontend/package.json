@@ -1,14 +1,14 @@
 {
   "name": "content-hub-frontend",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:content-hub-frontend": "node dist/content-hub-frontend/server/server.mjs"
-  },
+ "scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build --configuration production",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "serve:ssr:content-hub-frontend": "node dist/content-hub-frontend/server/server.mjs"
+},
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@angular/build": "^20.2.1",
-    "@angular/cli": "^20.2.1",
+    "@angular/cli": "^20.3.3",
     "@angular/compiler-cli": "^20.2.0",
     "@tailwindcss/postcss": "^4.1.12",
     "@types/express": "^5.0.1",
