@@ -1,11 +1,11 @@
 {
   "name": "content-hub-frontend",
   "version": "0.0.0",
-"scripts": {
-  "start": "ng serve",
-  "build": "ng build --configuration production",
-  "test": "ng test"
-},
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build --configuration production",
+    "test": "ng test"
+  },
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
