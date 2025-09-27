@@ -1,10 +1,9 @@
 [build]
   command = "npx ng build --configuration production"
-  publish = "dist/content-hub-frontend"
+  publish = "dist/content-hub-frontend/browser"
 
 [build.environment]
   NODE_VERSION = "22"
-
 
 [[redirects]]
   from = "/*"
