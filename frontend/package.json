@@ -2,12 +2,9 @@
   "name": "content-hub-frontend",
   "version": "0.0.0",
 "scripts": {
-  "ng": "ng",
   "start": "ng serve",
   "build": "ng build --configuration production",
-  "watch": "ng build --watch --configuration development",
-  "test": "ng test",
-  "serve:ssr:content-hub-frontend": "node dist/content-hub-frontend/server/server.mjs"
+  "test": "ng test"
 },
   "prettier": {
     "printWidth": 100,
