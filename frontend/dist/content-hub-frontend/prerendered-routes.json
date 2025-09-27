@@ -1,0 +1,10 @@
+{
+  "routes": {
+    "/": {},
+    "/content/fact": {},
+    "/content/idea": {},
+    "/content/joke": {},
+    "/content/quote": {},
+    "/submit": {}
+  }
+}
