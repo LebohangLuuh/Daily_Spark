@@ -8,9 +8,9 @@ import { Content } from '../models/content';
   providedIn: 'root'
 })
 export class ContentService {
-  private apiUrl = 'http://localhost:5000/api';
+  private readonly apiUrl = 'http://localhost:5000/api';
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   getContentByType(type: string, page: number = 1, limit: number = 20): Observable<any> {
     let params = new HttpParams()

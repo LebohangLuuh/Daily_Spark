@@ -3,7 +3,7 @@ import Groq from 'groq-sdk';
 // Simple word-based filter as fallback
 const INAPPROPRIATE_KEYWORDS = [
   // Add your inappropriate keywords here
-  'spam', 'scam', 'hate', 'violent', 'inappropriate'
+  'spam', 'scam', 'violent',
 ];
 
 let groqClient = null;
@@ -97,7 +97,7 @@ const contentQualityCheck = (text) => {
   }
   
   // Special characters spam
-  const specialCharRatio = (text.match(/[!@#$%^&*()_+=\[\]{}|;':",./<>?`~]/g) || []).length / text.length;
+  const specialCharRatio = (text.match(/[!@#$%^&*()_+=[\]{}|;':",./<>?`~]/g) || []).length / text.length;
   if (specialCharRatio > 0.3) {
     issues.push('excessive_special_chars');
   }

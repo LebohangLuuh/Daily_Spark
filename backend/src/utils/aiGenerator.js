@@ -267,9 +267,9 @@ export const moderateContentWithGroq = async (text) => {
 // ===== Main AI Content Generation =====
 export const generateAIContent = async (type, count = 3) => {
   const prompts = {
-    joke: 'Tell me a clean, family-friendly joke.',
-    fact: 'Share an interesting, lesser-known fact.',
-    idea: 'Give me a practical productivity or life improvement tip.',
+    joke: 'Tell me a random very funny joke about life, animals, celebrities, bible.',
+    fact: 'Share an interesting, lesser-known, unbelievable funny fact about life, bible, history, future.',
+    idea: 'Give me a practical productivity, innovation idea or life improvement tip.',
     quote: 'Create an inspiring, original motivational quote.'
   };
 
