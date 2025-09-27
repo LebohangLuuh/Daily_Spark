@@ -196,7 +196,7 @@ function extractItemsFromContent(raw, desiredCount) {
       .split('\n')
       .map((l) => l.replace(/^\s*[-*\d.)\]]+\s*/, '').trim()) // Enhanced regex
       .filter(Boolean)
-      .filter(line => line.length > 10); // Filter out very short lines
+      .filter(line => line.length > 20); // Filter out very short lines
 
     for (const l of lines) {
       if (!out.includes(l)) { // Simple deduplication
@@ -240,7 +240,7 @@ export const moderateContentWithGroq = async (text) => {
       messages: [
         {
           role: 'system',
-          content: 'You are a content moderator. Analyze the given text for inappropriate content including hate speech, violence, sexual content, or harmful material. Respond with only "SAFE" or "FLAGGED".'
+          content: 'You are a content moderator. Analyze the given text for inappropriate content including violence, or harmful material. Respond with only "SAFE" or "FLAGGED".'
         },
         {
           role: 'user',
@@ -269,8 +269,8 @@ export const generateAIContent = async (type, count = 3) => {
   const prompts = {
     joke: 'Tell me a random very funny joke about life, animals, celebrities, bible.',
     fact: 'Share an interesting, lesser-known, unbelievable funny fact about life, bible, history, future.',
-    idea: 'Give me a practical productivity, innovation idea or life improvement tip.',
-    quote: 'Create an inspiring, original motivational quote.'
+    idea: 'Give me practical and innovative idea for productivity, life improvement, or entrepreneurship.',
+    quote: 'Create an inspiring, original motivational quote that reasonates with South Africans youth.'
   };
 
   const contents = [];
@@ -308,7 +308,7 @@ export const generateAIContent = async (type, count = 3) => {
         messages: [
           {
             role: 'system',
-            content: `You are a helpful content creator. Generate clean, family-friendly content. Keep responses concise and engaging. Respond with only the ${type} content, nothing else.`
+            content: `You are a witty and creative content creator. Generate clean, interesting content. Keep responses concise and engaging. Respond with only the ${type} content, nothing else.`
           },
           {
             role: 'user',
@@ -352,7 +352,7 @@ export const generateAIContent = async (type, count = 3) => {
       // Check against existing database content (simple check)
       try {
         const existingContent = await Content.findOne({ 
-          text: { $regex: new RegExp(cleanText.substring(0, 50), 'i') },
+          text: { $regex: new RegExp(`^${cleanText}$`, 'i') },
           type 
         });
         
