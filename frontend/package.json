@@ -2,10 +2,12 @@
   "name": "content-hub-frontend",
   "version": "0.0.0",
   "scripts": {
-    "start": "ng serve",
-    "build": "ng build --configuration production",
-    "test": "ng test"
-  },
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build --configuration production",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test"
+},
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
@@ -20,13 +22,13 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^20.2.0",
-    "@angular/compiler": "^20.2.0",
-    "@angular/core": "^20.2.0",
-    "@angular/forms": "^20.2.0",
-    "@angular/platform-browser": "^20.2.0",
-    "@angular/platform-server": "^20.2.0",
-    "@angular/router": "^20.2.0",
+    "@angular/common": "^20.3.2",
+    "@angular/compiler": "^20.3.2",
+    "@angular/core": "^20.3.2",
+    "@angular/forms": "^20.3.2",
+    "@angular/platform-browser": "^20.3.2",
+    "@angular/platform-server": "^20.3.2",
+    "@angular/router": "^20.3.2",
     "@angular/ssr": "^20.2.1",
     "express": "^5.1.0",
     "ngx-infinite-scroll": "^20.0.0",
@@ -36,7 +38,7 @@
   "devDependencies": {
     "@angular/build": "^20.2.1",
     "@angular/cli": "^20.3.3",
-    "@angular/compiler-cli": "^20.2.0",
+    "@angular/compiler-cli": "^20.3.2",
     "@tailwindcss/postcss": "^4.1.12",
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
