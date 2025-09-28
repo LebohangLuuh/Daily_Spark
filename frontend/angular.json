@@ -5,65 +5,51 @@
   "projects": {
     "content-hub-frontend": {
       "projectType": "application",
-      "root": "frontend",
-      "sourceRoot": "frontend/src",
+      "root": "",
+      "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "frontend/dist/content-hub-frontend",
-            "index": "frontend/src/index.html",
-            "main": "frontend/src/main.ts",
-            "polyfills": "frontend/src/polyfills.ts",
-            "tsConfig": "frontend/tsconfig.app.json",
+            "outputPath": "dist/content-hub-frontend",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "frontend/src/assets",
-                "output": "assets"
-              },
-              {
-                "glob": "favicon.ico",
-                "input": "frontend/src",
-                "output": "/"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
-            "styles": ["frontend/src/styles.css"],
-            "scripts": [  "src/env.js"]
+            "styles": ["src/styles.css"],
+            "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "frontend/src/environments/environment.ts",
-                  "with": "frontend/src/environments/environment.prod.ts"
-                }
-              ],
+              "optimization": true,
               "outputHashing": "all",
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ]
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             },
             "development": {
               "optimization": false,
               "sourceMap": true,
-              "extractLicenses": false
+              "namedChunks": true,
+              "aot": false,
+              "vendorChunk": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "content-hub-frontend:build:development"
+          },
           "configurations": {
             "production": {
               "browserTarget": "content-hub-frontend:build:production"
@@ -74,35 +60,25 @@
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
-        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "frontend/src/test.ts",
-            "polyfills": "frontend/src/polyfills.ts",
-            "tsConfig": "frontend/tsconfig.spec.json",
-            "karmaConfig": "frontend/karma.conf.js",
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "frontend/src/assets",
-                "output": "assets"
-              },
-              {
-                "glob": "favicon.ico",
-                "input": "frontend/src",
-                "output": "/"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
-            "styles": ["frontend/src/styles.css"],
-            "scripts": [  "src/env.js"]
+            "styles": ["src/styles.css"],
+            "scripts": []
           }
         }
       }
     }
   },
+  "defaultProject": "content-hub-frontend",
   "cli": {
     "analytics": false
   }
