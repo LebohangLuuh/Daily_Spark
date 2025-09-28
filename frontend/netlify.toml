@@ -1,7 +1,8 @@
 
+
   [build]
-  command = "npm install && npm run build"
-  publish = "dist/content-hub-frontend"
+  command = "cd frontend && npm install && npm run build"
+  publish = "frontend/dist/content-hub-frontend"
 
 
 [build.environment]
