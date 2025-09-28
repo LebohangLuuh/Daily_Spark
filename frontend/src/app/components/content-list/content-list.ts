@@ -19,8 +19,8 @@ export class ContentListComponent implements OnInit {
   loading: boolean = false;
 
   constructor(
-    private route: ActivatedRoute,
-    private contentService: ContentService
+    private readonly route: ActivatedRoute,
+    private readonly contentService: ContentService
   ) { }
 
   ngOnInit(): void {

@@ -17,9 +17,9 @@ export class ContentFormComponent {
   errorMessage = '';
 
   constructor(
-    private fb: FormBuilder,
-    private contentService: ContentService,
-    private router: Router
+    private readonly fb: FormBuilder,
+    private readonly contentService: ContentService,
+    private readonly router: Router
   ) {
     this.contentForm = this.fb.group({
       text: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(2000)]],
