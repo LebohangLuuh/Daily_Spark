@@ -1,13 +1,20 @@
+# -------------------------
+# Netlify Configuration
+# -------------------------
 
-
-  [build]
+[build]
+  # Go into your frontend folder
   command = "cd frontend && npm install && npm run build"
+  # Angular build output folder
   publish = "frontend/dist/content-hub-frontend"
 
-
 [build.environment]
-  NODE_VERSION = "22.x"
+  # Node version to use
+  NODE_VERSION = "22"
+  # API base URL for your frontend to call
+  API_URL = "https://daily-spark-vuba.onrender.com/api"
 
+# SPA routing: redirect all paths to index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
