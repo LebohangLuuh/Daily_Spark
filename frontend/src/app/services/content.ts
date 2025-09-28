@@ -8,7 +8,7 @@ import { Content } from '../models/content';
   providedIn: 'root'
 })
 export class ContentService {
-  private readonly apiUrl = 'http://localhost:5000/api';
+  private readonly apiUrl = 'https://daily-spark-vuba.onrender.com/api';
 
   constructor(private readonly http: HttpClient) { }
 
