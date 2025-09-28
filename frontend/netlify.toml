@@ -1,14 +1,12 @@
 [build]
-  command = "npx ng build --configuration production"
-  publish = "dist/content-hub-frontend/browser"
+  command = "npm install && npm run build"
+  publish = "dist/content-hub-frontend"
 
 [build.environment]
   NODE_VERSION = "22"
   API_URL = "https://daily-spark-vuba.onrender.com/api"
 
-
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
